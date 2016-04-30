@@ -1,0 +1,28 @@
+couchdb_config:
+     couchdb_host: 172.17.0.2
+     couchdb_port: 5984
+
+     callingdb.database: callerdb
+
+     scheduke_callerdb.database: schedcallerdb
+
+     smsdb.database: smsdb
+
+     schedule_smsdb.databse: schedsmsdb     
+
+     authtokendb.database: authdb
+
+redis_config:
+     redis_host: 172.17.0.3
+     redis_port: 6379    
+
+     redis_password: password
+
+     max_connections: 20
+
+     pool_timeout: 3000
+
+     connect_timeout: 3000
+
+     query_timeout: 3000
+
