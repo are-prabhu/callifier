@@ -5,6 +5,7 @@ import time
 from couchdbkit import Server
 
 COUCH_CONFIG="couchdb_config"
+TOKEN_DB="token_db"
 	
 
 class CouchProperties(object):
@@ -13,7 +14,6 @@ class CouchProperties(object):
 
      def get_couch_connection(self, couch_prop):
 	  couch_conn = Server(uri = 'http://%s:%s' % (couch_prop['couchdb_host'],couch_prop['couchdb_port']))
-	  print couch_conn
 	  return couch_conn
 	 
      def connect_properties(self):

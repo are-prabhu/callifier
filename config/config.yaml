@@ -2,9 +2,9 @@ couchdb_config:
      couchdb_host: 172.17.0.2
      couchdb_port: 5984
 
-     callingdb.database: callerdb
+     token_db: tokendb
 
-     scheduke_callerdb.database: schedcallerdb
+     schedule_callerdb.database: schedcallerdb
 
      smsdb.database: smsdb
 
