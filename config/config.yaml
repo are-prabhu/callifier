@@ -3,14 +3,16 @@ couchdb_config:
      couchdb_port: 5984
 
      token_db: tokendb
+     couch_username: admin
+     couch_password: admin
 
-     schedule_callerdb.database: schedcallerdb
+     schedule_callerdb: schedcallerdb
 
-     smsdb.database: smsdb
+     smsdb: smsdb
 
-     schedule_smsdb.databse: schedsmsdb     
+     schedule_smsdb: schedsmsdb     
 
-     authtokendb.database: authdb
+     authtokendb: authdb
 
 redis_config:
      redis_host: 172.17.0.3

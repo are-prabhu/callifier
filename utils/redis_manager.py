@@ -29,7 +29,7 @@ def get_redis_instance_from_redis_address(redis_addr,strict_client=False, prop=N
 	  
 
 class RedisProperties(object):
-     def connect_properties(self):
+     def redis_connect_properties(self):
           config_obj = ConfigManager.get_instance()
           self.config = config_obj.dataMap
      
@@ -40,7 +40,7 @@ class RedisProperties(object):
 
 class RedisOperations(RedisProperties): 
     def __init__(self):
-          super(RedisOperations,self).connect_properties()
+          super(RedisOperations,self).redis_connect_properties()
 
     def redis_set(self,set_value,set_key):
 	  self.redis_connect.set(set_value,set_key)	 
@@ -57,7 +57,6 @@ class RedisOperations(RedisProperties):
 
     def redis_lrange(self,range_key,range_from=None,range_to=None):
 	  if range_key == "auth_token":
-	       
 	       return self.redis_connect.lrange("auth_token",-1000,1000)
 	  else:
 	       return self.redis_connect.lraneg(range_key,range_from,range_to)
