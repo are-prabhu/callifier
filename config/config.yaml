@@ -4,7 +4,7 @@ couchdb_config:
 
      token_db: tokendb
      couch_username: admin
-     couch_password: admin
+     couch_password: password
 
      schedule_callerdb: schedcallerdb
 
@@ -27,4 +27,9 @@ redis_config:
      connect_timeout: 3000
 
      query_timeout: 3000
+
+plivo_config:
+     plivo_number: 14153337777
+
+     plivo_url: http://hidden-plateau-8325.herokuapp.com/response/conference
 

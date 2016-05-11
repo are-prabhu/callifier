@@ -11,7 +11,6 @@ import time
 import re
 import math
 import os
-import os.path
 from utils.log import Logger
 from workers.user_auth import UserAuthValidation
 from flaskext.couchdbkit import CouchDBKit
@@ -37,8 +36,7 @@ def caller_unlock(**kwargs):
      return result
          
 
-
 if __name__ == '__main__':
      app.run(host="127.0.0.1",port=8080,debug=True)
-     #app.run()
+     app.run()
 

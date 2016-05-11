@@ -65,8 +65,7 @@ class CouchOperations():
 	  for res in db.view('_design/%sview/_view/%s' %(db.name,db.name) ):
 	       return {res.id:res.key}
 
-#CouchOperations().couch_insert(CouchProperties.tokendb_instance(),{"_id":"iewis","account_token":"xihelt","account_created":"10/11/11","account_expires":"11/11/11"})
+#CouchOperations().couch_insert(CouchProperties.tokendb_instance(), {"_id":"imsudo","account_token":"testtoken","account_created":"10/11/11","account_expires":"11/11/11","account_type":"premium"})
 #CouchOperations().couch_get_view(CouchProperties.tokendb_instance(),"xihelt")
-
 
 
