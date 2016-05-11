@@ -29,7 +29,13 @@ redis_config:
      query_timeout: 3000
 
 plivo_config:
-     plivo_number: 14153337777
+     plivo_authid: xxxxxxxxxxxxxxxxxxxxxxxxxx
 
+     plivo_authtoken: YYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+
+     plivo_number: 123456789
+
+     plivo_answerurl: http://healware.com:5000/response/speak
+   
      plivo_url: http://hidden-plateau-8325.herokuapp.com/response/conference
 
