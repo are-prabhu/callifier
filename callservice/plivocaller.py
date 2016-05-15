@@ -16,7 +16,7 @@ class CallerService(object):
           self.config = config_obj.dataMap
           self.plivo_block = self.config.get(PLIVO_CONFIG,{})
      
-     def single_call_parameters(self,source_number=None,dest_number):
+     def single_call_parameters(self,dest_number,source_number=None):
           call_params = {}
 	  call_params['from'] = source_number
 	  call_params['to'] = dest_number

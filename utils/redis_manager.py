@@ -6,6 +6,7 @@ from config import ConfigManager
 import time
 
 REDIS_CONFIG="redis_config"
+REDIS_TOKEN_EXPIRE="redis_trial_token_expire"
 
 def get_redis_instance_from_redis_address(redis_addr,strict_client=False, prop=None):
      if redis_addr:
@@ -35,7 +36,6 @@ class RedisProperties(object):
      
           self.redis_block = self.config.get(REDIS_CONFIG,{})	  
           self.redis_connect = get_redis_instance_from_redis_address(self.redis_block)
-          print self.redis_connect
 
 
 class RedisOperations(RedisProperties): 
@@ -44,6 +44,12 @@ class RedisOperations(RedisProperties):
 
     def redis_set(self,set_value,set_key):
 	  self.redis_connect.set(set_value,set_key)	 
+
+    def redis_trail_set(self,set_value,default_expire=None):
+	  if default_expire == None:
+	       self.redis_connect.expire(set_value,self.redis_block[REDIS_TOKEN_EXPIRE])
+	  else:
+               self.redis_connect.expire(set_value,default_expire)
 
     def redis_get(self,get_value):
 	  return self.redis_connect.get(get_value)
@@ -61,10 +67,9 @@ class RedisOperations(RedisProperties):
 	  else:
 	       return self.redis_connect.lraneg(range_key,range_from,range_to)
 
-	       
-	 
-#RedisOperations().redis_rpush("auth_token","testkey")
+
+#RedisOperations().redis_set("SPu3txvLC40mqInUtcrh","imsudo")	 
+#RedisOperations().redis_trail_set("auth_token",1)
+#RedisOperations().redis_get("auth_token")
 #RedisOperations().redis_lrange("auth_token")
-
-
 

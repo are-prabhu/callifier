@@ -13,7 +13,9 @@ COUCH_USERNAME="couch_username"
 COUCH_PASSWORD="couch_password"
 
 TOKEN_DB="token_db"
+ORG_DB="org_db"
 SCHEDCALLERDB="schedcallerdb"
+
 
 
 def get_couch_instance_from_couch_address(couch_config):
@@ -34,6 +36,10 @@ class CouchProperties(object):
 	  self.config = config_obj.dataMap
 	  self.couch_block = self.config.get(COUCH_CONFIG,{})
 	  self.couch_connect = get_couch_instance_from_couch_address(self.couch_block)
+
+     @staticmethod
+     def orgdb_instance():
+          return CouchProperties().couch_connect[CouchProperties().couch_block[ORG_DB]]
      
      @staticmethod
      def tokendb_instance():
@@ -57,15 +63,15 @@ class CouchOperations():
      def couch_update(self,db,rev_id,update_docs):
 	  db.save(update_docs)
 
-
      def couch_get_view(self,db,get_token):
-          view = ViewDefinition('%sview' % db.name, '%s' % db.name, '''function(doc) {if (doc.account_token == "%s") emit(doc);}''' % get_token)
+          view = ViewDefinition('%sview' % db.name, '%s' % db.name, '''function(doc) {if (doc._id == "%s") emit(doc);}''' % get_token)
 	  view.sync(db)
 
 	  for res in db.view('_design/%sview/_view/%s' %(db.name,db.name) ):
 	       return {res.id:res.key}
 
-#CouchOperations().couch_insert(CouchProperties.tokendb_instance(), {"_id":"imsudo","account_token":"testtoken","account_created":"10/11/11","account_expires":"11/11/11","account_type":"premium"})
-#CouchOperations().couch_get_view(CouchProperties.tokendb_instance(),"xihelt")
 
+#CouchOperations().couch_insert(CouchProperties.orgdb_instance(), {"_id":"imsudo","account_type":"premium","org_id":"SPu3txvLC40mqInUtcrh","allprojects":["testproject"]})
+#CouchOperations().couch_get_view(CouchProperties.orgdb_instance(),"imsudo")
+#CouchOperations().couch_get_view(CouchProperties.tokendb_instance(),"xihelt")
 
