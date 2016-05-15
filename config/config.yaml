@@ -1,10 +1,12 @@
 couchdb_config:
-     couchdb_host: 172.17.0.2
+     couchdb_host: 172.17.0.3
      couchdb_port: 5984
 
-     token_db: tokendb
      couch_username: admin
      couch_password: password
+
+     token_db: tokendb
+     org_db: organizationdb
 
      schedule_callerdb: schedcallerdb
 
@@ -15,12 +17,14 @@ couchdb_config:
      authtokendb: authdb
 
 redis_config:
-     redis_host: 172.17.0.3
+     redis_host: 172.17.0.2
      redis_port: 6379    
 
      redis_password: password
 
      max_connections: 20
+
+     redis_trial_token_expire: 1296000
 
      pool_timeout: 3000
 
@@ -29,9 +33,9 @@ redis_config:
      query_timeout: 3000
 
 plivo_config:
-     plivo_authid: xxxxxxxxxxxxxxxxxxxxxxxxxx
+     plivo_authid: XXXXXXXXXXXXXXXXXX
 
-     plivo_authtoken: YYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+     plivo_authtoken: YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 
      plivo_number: 123456789
 
