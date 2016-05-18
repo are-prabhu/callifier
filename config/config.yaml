@@ -7,6 +7,8 @@ couchdb_config:
 
      token_db: tokendb
      org_db: organizationdb
+     project_db: projectdb
+     user_db: userdb
 
      schedule_callerdb: schedcallerdb
 
@@ -33,9 +35,9 @@ redis_config:
      query_timeout: 3000
 
 plivo_config:
-     plivo_authid: XXXXXXXXXXXXXXXXXX
+     plivo_authid: XXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-     plivo_authtoken: YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+     plivo_authtoken: YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 
      plivo_number: 123456789
 

@@ -12,10 +12,12 @@ COUCH_HOST="couchdb_host"
 COUCH_USERNAME="couch_username"
 COUCH_PASSWORD="couch_password"
 
+
 TOKEN_DB="token_db"
 ORG_DB="org_db"
 SCHEDCALLERDB="schedcallerdb"
-
+PROJECTIDDB="project_db"
+USERDB="user_db"
 
 
 def get_couch_instance_from_couch_address(couch_config):
@@ -53,6 +55,14 @@ class CouchProperties(object):
      def schedsmsdb_instance():
 	  return CouchProperties().couch_connect[CouchProperties().couch_block[SCHEDCALLERDB]]
 
+     @staticmethod
+     def userdb_instance():
+          return CouchProperties().couch_connect[CouchProperties().couch_block[USERDB]]
+
+     @staticmethod
+     def projectdb_instance():
+          return CouchProperties().couch_connect[CouchProperties().couch_block[PROJECTIDDB]]
+
 class CouchOperations():
      def __init__(self):
 	  pass	
@@ -69,7 +79,6 @@ class CouchOperations():
 
 	  for res in db.view('_design/%sview/_view/%s' %(db.name,db.name) ):
 	       return {res.id:res.key}
-
 
 #CouchOperations().couch_insert(CouchProperties.orgdb_instance(), {"_id":"imsudo","account_type":"premium","org_id":"SPu3txvLC40mqInUtcrh","allprojects":["testproject"]})
 #CouchOperations().couch_get_view(CouchProperties.orgdb_instance(),"imsudo")

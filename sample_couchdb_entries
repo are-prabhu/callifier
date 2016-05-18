@@ -1,0 +1,33 @@
+SAMPLE DB ENTRIES
+**********************************************************
+DB-NAME:organizationdb
+{
+   "_id": "imsudo",
+   "_rev": "1-1845a37448ffe874aff5f00b810d565b",
+   "allprojects": [
+       "testproject"
+   ],
+   "org_id": "SPu3txvLC40mqInUtcrh",
+   "account_type": "premium"
+}
+***********************************************************
+DB-NAME:projectdb
+{
+   "_id": "testproject",
+   "_rev": "4-75364c4e11577dfc6f82ee56e9502b42",
+   "esclation1": [
+       "prabhu"
+   ],
+   "esclation2": [
+       "prabhu"
+   ]
+}
+*********************************************************
+DB-NAME:userdb
+{
+   "_id": "prabhu",
+   "_rev": "5-24de7d0b069f826271e9969d230393de",
+   "phone_number": "+919901278850",
+   "voice": "MALE",
+   "language": "en-US"
+}

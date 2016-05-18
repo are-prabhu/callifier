@@ -39,29 +39,29 @@ class RedisProperties(object):
 
 
 class RedisOperations(RedisProperties): 
-    def __init__(self):
+     def __init__(self):
           super(RedisOperations,self).redis_connect_properties()
 
-    def redis_set(self,set_value,set_key):
+     def redis_set(self,set_value,set_key):
 	  self.redis_connect.set(set_value,set_key)	 
 
-    def redis_trail_set(self,set_value,default_expire=None):
+     def redis_trail_set(self,set_value,default_expire=None):
 	  if default_expire == None:
 	       self.redis_connect.expire(set_value,self.redis_block[REDIS_TOKEN_EXPIRE])
 	  else:
                self.redis_connect.expire(set_value,default_expire)
 
-    def redis_get(self,get_value):
+     def redis_get(self,get_value):
 	  return self.redis_connect.get(get_value)
 	  
-    def redis_rpush(self,push_key,push_value):
-	  if str(push_key) == "auth_token":
+     def redis_rpush(self,push_key,push_value):
+       	  if str(push_key) == "auth_token":
 	       self.redis_connect.lpush("auth_token",push_value)          
 
 	  else:
 	       self.redis_connect.lpush(push_key,push_value)          
 
-    def redis_lrange(self,range_key,range_from=None,range_to=None):
+     def redis_lrange(self,range_key,range_from=None,range_to=None):
 	  if range_key == "auth_token":
 	       return self.redis_connect.lrange("auth_token",-1000,1000)
 	  else:
